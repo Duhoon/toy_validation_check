@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# toy_validation_check
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+정규표현식을 통해서 입력 유효성을 검사하는 간단한 로그인 or 회원가입 페이지입니다.
 
-## Available Scripts
+# 개발환경
 
-In the project directory, you can run:
+- react 최신 버젼(18.2.0) / react-router-dom 최신 버젼
 
-### `npm start`
+# 필요한 파일
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
++— src
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
++— Page
 
-### `npm test`
++— Signin.js  (로그인 페이지)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
++— Signin.css 
 
-### `npm run build`
++— Signup.js (회원가입 페이지)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
++— Signup.css
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
++— App.js
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# 요구사항
 
-### `npm run eject`
+컴포넌트 명은 파일명으로 일치
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### SignIn Page
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+— 아이디 입력 엘리먼트 필요 (클래스명 : signin_userid)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+— 비밀번호 입력 엘리먼트 필요 (클래스명 : signin_password)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+— 로그인 Button 필요
 
-## Learn More
+— ‘react_router_dom’ 을 통해 회원가입 페이지로 이동(회원가입 페이지 url은 ‘/signup’)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+validate
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+— 아이디 입력 폼에 값이 있는지 확인
 
-### Code Splitting
+— 비밀번호 입력 폼에 값이 있는지 확인
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+— 버튼 눌렀을 때 각각에 해당하는 안내문구 출력(alert는 되도록 지양)
 
-### Analyzing the Bundle Size
+### SignUp Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+— 아이디 입력 엘리먼트 필요 (클래스명 : signup_userid)
 
-### Making a Progressive Web App
+— 비밀번호 입력 엘리먼트 필요 (클래스명 : signup_password)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+— 비밀번호 확인 입력 엘리먼트 필요 (클래스명 : signup_password_confirm)
 
-### Advanced Configuration
+— 이메일 주소 입력 엘리먼트 필요 (클래스명 : signup_email)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+— 전화번호 입력 엘리먼트 필요 (클래스명 : signup_phonenumber)
 
-### Deployment
+— (선택) 주소 API 불러와 우편번호, 주소, 상세주소 뿌리는 입력 엘리먼트 생성
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+—  회원가입 Button 필요
 
-### `npm run build` fails to minify
+— ‘react_router_dom’ 을 통해 로그인 페이지로 이동(회원가입 페이지 url은 ‘/’)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+validate
+
+— 아이디 입력 (영어 알파벳 소문자 대문자), (숫자 )만 입력하게 정규표현으로 검사
+
+— 비밀번호 입력 적어도 영어 알파벳 소문자 1개, 영어 알파벳 대문자 1개, 숫자 1개, 특수문자(!,@,#,$,%,^,&,*) 1개 씩 포함, 정규표현으로 검사
+
+— 이메일 주소 입력 이메일 형태에 맞게 정규표현으로 검사 (모든 이메일 형태에 일치해야 함.)
+
+— 전화번호 입력 정규표현으로 검사(010-1234-1234 의 형식으로 입력 검사)
+
+— 모든 검사에서 불일치 시 안내문구 출력
+
+# 개발 업무 내용
+
+## — 컴포넌트 및 HTML 개발 / 인원 1명
+
+## — CSS 디자인 / 인원 1명
+
+## — Validation 함수 개발 / 인원 1명
