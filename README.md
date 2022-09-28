@@ -7,15 +7,21 @@
 - react 최신 버젼(18.2.0) / react-router-dom 최신 버젼
 
 # 필요한 파일
-
+```
 +— src
-    +— Page
-        +— Signin.js  (로그인 페이지)
-        +— Signin.css 
-        +— Signup.js (회원가입 페이지)
-        +— Signup.css
-    +— App.js
 
+    +— Page
+
+        +— Signin.js  (로그인 페이지)
+
+        +— Signin.css 
+
+        +— Signup.js (회원가입 페이지)
+
+        +— Signup.css
+
+    +— App.js
+```
 # 요구사항
 
 
