@@ -6,7 +6,6 @@ function Signin(){
 
     return(
         <div>
-                <Link to ="/">Login</Link>
              <form>
                 <input className ="signin_userid" type="text"></input>
                 <input className ="signin_password" type="text"></input>
