@@ -26,12 +26,20 @@ function Signin(){
     const [userId , setuserId] = useState(""); //ID 저장
     const [userPasswd , setuserPass] = useState(""); //Pass 저장
 
-    function handleId(e){
+    function handleId(e){ //이벤트 값들을 인자로 받는 것
         setuserId(e.target.value);
     }
 
-    function handlePasswd(el_pass){
-        return
+    function handlePasswd(e){
+        setuserPass(e.target.value);
+        if(userPasswd === 0){
+            console.log(userPasswd);
+            <div>Passwd 입력해주세요.</div>
+        }
+        else if(userPasswd > 0){
+            console.log(userPasswd);
+            <div>입력 완료</div>
+        }
     }
 
 
@@ -40,7 +48,7 @@ function Signin(){
              <form>
                 <input className ="signin_userid" type="text" onChange={handleId} value={userId}></input>
                 {userId.length < 1 ? <div>아이디를 입력해주세요</div> : <></>}
-                <input className ="signin_password" type="text" onChange={handlePasswd}></input>
+                <input className ="signin_password" type="text" onChange={handlePasswd} value={userPasswd}></input>
                 <button>Login</button>
                 <button><Link to="/Signup">회원가입</Link></button>                
             </form>
