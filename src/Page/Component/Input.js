@@ -1,6 +1,3 @@
-import { render } from "@testing-library/react";
-import { type } from "@testing-library/user-event/dist/type";
-
 function Input({placeholder, className, changeHandler, value, valid , valid_message, type}){
     return (
         <div className="input-group">
