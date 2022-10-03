@@ -10,7 +10,7 @@ function Signup(){
     const [userConfirm, setUserConfirm] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [userPhoneNumber, setUserPhoneNumber] = useState("");
-    const [validCheck, setValidCheck] = useState(new Array(5).fill(false));
+    const [validCheck] = useState(new Array(5).fill(false));
 
     function handleInput(setter, validFunc ,order){
         return (event)=>{

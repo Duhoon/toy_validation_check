@@ -16,9 +16,9 @@ function Signin(){
     //   아니면 ? 입력해달라고 안내문구 출력
 
 
-// 유저의 정보가 저장이 안되어 있으면 회원가입
-//4. Login 버튼을 눌렀을 때 있으면 로그인 되었습니다.
-//5. 각 태그에 이벤트 핸들러로 고차함수 적용
+        // 유저의 정보가 저장이 안되어 있으면 회원가입
+    //4. Login 버튼을 눌렀을 때 있으면 로그인 되었습니다.
+    //5. 각 태그에 이벤트 핸들러로 고차함수 적용
 
     // 어떤 관리를 하려고 하셨나요.
     // 값이 하나하나 저장이 될것
@@ -55,7 +55,7 @@ function Signin(){
                 <input className ="signin_userid" type="text" onChange={handleId} value={userId} placeholder="ID를 입력해주세요."></input>
             </div>
             <div className="input-group">
-                <input className ="signin_password" type="text" onChange={handlePasswd} value={userPasswd} placeholder="비밀번호를 입력해주세요."></input>
+                <input className ="signin_password" type="password" onChange={handlePasswd} value={userPasswd} placeholder="비밀번호를 입력해주세요."></input>
             </div>
             
             <div className="button-group">

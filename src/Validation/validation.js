@@ -12,12 +12,12 @@ export default {
     /* 회원가입 페이지 유효성 검사 */
 
     signupIdCheck : (id)=>{
-        let checkRegExp = /[\w_-]{5,}/ ;
+        let checkRegExp = /^[\w_-]{5,}$/ ;
         return checkRegExp.test(id);
     },
 
     signupPasswordCheck : (password)=>{
-        let checkRegExp = /(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*_-])[\w!@#$%^&*_-]{8,}/ ;
+        let checkRegExp = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*_-])[\w!@#$%^&*_-]{8,}$/ ;
         return checkRegExp.test(password);
     },
 
