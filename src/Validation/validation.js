@@ -1,5 +1,3 @@
-
-
 export default {
     /* 로그인 페이지 유효성 검사*/
 
@@ -14,21 +12,24 @@ export default {
     /* 회원가입 페이지 유효성 검사 */
 
     signupIdCheck : (id)=>{
-        let checkRegExp = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])\w{8,}/ ;
+        let checkRegExp = /[\w_-]{5,}/ ;
         return checkRegExp.test(id);
     },
 
     signupPasswordCheck : (password)=>{
-        let checkRegExp = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}/
+        let checkRegExp = /(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*_-])[\w!@#$%^&*_-]{8,}/ ;
         return checkRegExp.test(password);
     },
 
     signupEmailCheck : (email)=>{
-        let checkRegExp = /^[\w][\w]*@/
+        let checkRegExp = /^[\w!@#$%^&*`+\-/{|}~](\.?[\w!@#$%^&*`+\-/{|}~])*@(?=.*\.)[\w]([\-\.]?[\w])*\w$/ ;   
+        return checkRegExp.test(email);
     },
 
-}
+    signupPhonenumberCheck : (phonenumber) => {
+        console.log(typeof phonenumber);
+        let checkRegExp = /^0[\d]{1,2}-[\d]{3,4}-[\d]{4}$/ ;
+        return checkRegExp.test(phonenumber);
+    }
 
-// userId 함수 -> 입력받는 텍스트 값을 입력을 받으면 그것을 배열에 넣고
-// 순서도?
-// 두 함수에 어떻게 입력이 들어올까요? 이벤트에서 넣어야 된다고요?
+}

@@ -9,17 +9,16 @@
 # 필요한 파일
 ```
 +— src
-
     +— Page
-
+        +— Component
+            +— Input.js
         +— Signin.js  (로그인 페이지)
-
         +— Signin.css 
-
         +— Signup.js (회원가입 페이지)
-
         +— Signup.css
-
+    +— Validation
+        +— Validation.js (유효 검사 자체 라이브러리)
+    +— App.css
     +— App.js
 ```
 # 요구사항

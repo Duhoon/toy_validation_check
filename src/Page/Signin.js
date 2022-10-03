@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import './Signin.css';
 import {Link} from 'react-router-dom';
+import Validation from '../Validation/Validation.js'
 
 function Signin(){
 
@@ -27,31 +28,40 @@ function Signin(){
     const [userPasswd , setuserPass] = useState(""); //Pass 저장
 
     function handleId(e){ //이벤트 값들을 인자로 받는 것
+        
+        console.log(e);
+
         setuserId(e.target.value);
     }
 
     function handlePasswd(e){
         setuserPass(e.target.value);
-        if(userPasswd === 0){
+    }
+
+    function ValidPassword(){
+        if(userPasswd.length === 0){
             console.log(userPasswd);
-            <div>Passwd 입력해주세요.</div>
+            return(<div>Password 입력해주세요.</div>)
         }
-        else if(userPasswd > 0){
+        else if(userPasswd.length > 0){
             console.log(userPasswd);
-            <div>입력 완료</div>
+            return(<div>입력 완료</div>)
         }
     }
 
-
     return(
-        <div>
-             <form>
-                <input className ="signin_userid" type="text" onChange={handleId} value={userId}></input>
-                {userId.length < 1 ? <div>아이디를 입력해주세요</div> : <></>}
-                <input className ="signin_password" type="text" onChange={handlePasswd} value={userPasswd}></input>
+        <div className="signin-form"> 
+            <div className="input-group">
+                <input className ="signin_userid" type="text" onChange={handleId} value={userId} placeholder="ID를 입력해주세요."></input>
+            </div>
+            <div className="input-group">
+                <input className ="signin_password" type="text" onChange={handlePasswd} value={userPasswd} placeholder="비밀번호를 입력해주세요."></input>
+            </div>
+            
+            <div className="button-group">
                 <button>Login</button>
-                <button><Link to="/Signup">회원가입</Link></button>                
-            </form>
+                <Link to="/signup"><button>회원가입</button></Link>
+            </div>
         </div>
     )    
 }
