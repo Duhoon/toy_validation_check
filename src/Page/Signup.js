@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Signup.css";
 import Input from "./Component/Input";
-import Validation from '../Validation/validation';
+import Validation from '../Validation/Validation';
 import axios from 'axios';
 
 function Signup() {

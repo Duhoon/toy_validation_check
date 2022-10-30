@@ -10,7 +10,7 @@ function Mypage ({logoutHandler}){
         // 로그아웃 시 필요한 로직을 작성하면 되겠습니다.
         logoutHandler();
     }
-
+    
     return (
         <div>
             <div className="mypage-info">
