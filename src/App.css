@@ -43,6 +43,14 @@ button:last-child {
     background-color :var(--color-gray);
 }
 
+button:hover {
+    cursor : pointer;
+}
+
+button:active {
+    background-color : #777;
+}
+
 input {
     border : none;
     border-radius : 3px;

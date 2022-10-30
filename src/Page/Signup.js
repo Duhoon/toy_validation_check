@@ -3,30 +3,49 @@ import {Link} from 'react-router-dom';
 import "./Signup.css";
 import Input from "./Component/Input";
 import Validation from '../Validation/Validation';
+import axios from 'axios';
 
 function Signup(){
+
+    // 저장하고 싶은 정보의 state만 남겨놓고 사용하시면 됩니다.
     const [userId, setUserId] = useState("");
     const [userPassword, setUserPassword] = useState("");
     const [userConfirm, setUserConfirm] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [userPhoneNumber, setUserPhoneNumber] = useState("");
+    // 저장하는 정보의 갯수를 new Array(갯수)에 기입해주시면 됩니다.
     const [validCheck] = useState(new Array(5).fill(false));
 
     function handleInput(setter, validFunc ,order){
         return (event)=>{
             let value = event.target.value
             setter(value);
+            /// 기본으로 제공되는 입력 중 2번째 입력은 비밀번호를 확인하는 입력입니다.
+            // 필요없는 정보라면 아래의 조건문과 문장을 삭제하고, else 까지 지우고 사용시면 됩니다.
             if (order === 2) validCheck[order] = (userPassword === value);
             else validCheck[order] = validFunc(value);
         }
     }
 
     function handleSubmit(event){
-        if (validCheck.reduce((result, cur)=> !cur ? false : result )) alert("모두 유효하게 작성되었습니다.");
-        else alert("이상합니다.")
+        if (validCheck.reduce((result, cur)=> !cur ? false : result )) {
+            // 저장하고 싶은 정보의 입력만 남겨놓고 사용하시면 됩니다.
+            axios.post(`localhost:4000/signin`,{
+                userId, userPassword, userEmail, userPhoneNumber
+            })
+            .then((res)=>{
+                // 회원 가입이 정상적으로 끝났을 때 처리하고 싶은 로직을 작성하시면 되겠습니다.
+                window.location.assign("/");
+            }).catch(err=>{
+                alert("회원 정보를 저장하는 과정에서 문제가 발생했습니다.");
+            })
+        }
+        else alert("입력하신 정보 중 유효하지 않은 항목이 존재합니다.");
     }
 
 
+    // 저장하고 싶은 정보의 입력만 남겨놓고 사용하시면 됩니다.
+    // 단 입력되는 숫자를 0 부터 순서대로 맞춰주셔야 합니다.
     return (
         <div className="signup-form">
             <Input 
